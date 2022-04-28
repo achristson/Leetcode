@@ -46,8 +46,8 @@ def generate_strings(chars,n):
             print("".join(slate))
             return
 
-        for j in range(len(chars)):
-            slate.append(chars[j])
+        for i in range(len(chars)):
+            slate.append(chars[i])
             generate(slate)
             slate.pop()
     generate([])
