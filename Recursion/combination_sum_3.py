@@ -1,4 +1,4 @@
-def combinationSum3(self, k: int, n: int) -> List[List[int]]:
+def combination_sum_3(k, n):
         result = []
         
         def helper(i,slate):

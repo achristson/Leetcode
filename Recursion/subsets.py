@@ -1,4 +1,4 @@
-def subsets(self, nums: List[int]) -> List[List[int]]:
+def subsets(nums):
     result = []
 
     def helper(i,slate):

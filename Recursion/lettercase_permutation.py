@@ -1,4 +1,4 @@
-def letterCasePermutation(self, s: str) -> List[str]:
+def letter_case_permutation(s):
         results = []
         def helper(i, slate):
             if len(slate) == len(s):

@@ -1,3 +1,4 @@
+"""
 let's say you are given a list of single characters
 For example chars = ['a', 'b', 'c']
 Chars will be non-empty distinct list of single character strings
@@ -39,6 +40,8 @@ aca
 cca
 ccb
 ccc
+
+"""
 
 def generate_strings(chars,n):
     def generate(slate):

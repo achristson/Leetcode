@@ -1,4 +1,4 @@
-def partition(self, s: str) -> List[List[str]]:
+def partition(s):
     results = []
 
     def is_palindrome(substring):

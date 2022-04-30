@@ -1,4 +1,4 @@
-def combinationSum(self, candidates: List[int], target: int) -> List[List[int]]:
+def combination_sum(candidates, target): 
     result = []
 
     def combination_sum_helper(i, slate):

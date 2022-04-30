@@ -1,4 +1,4 @@
-def letterCombinations(self, digits: str) -> List[str]:
+def letter_combinations(digits):
         if not digits:
             return []
         

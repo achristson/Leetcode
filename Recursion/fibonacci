@@ -1,3 +1,4 @@
+"""
 Fibonacci numbers
  
 1 1 2 3 5 8 13 ...
@@ -5,8 +6,8 @@ Each number is the sum of the previous two
 And you start with 1 and 1
  
 Write a program that given n gives you the n'th fib number.
-
-Memoization solution:
+"""
+#Memoization solution:
 cache = {}
 cache[1] = 1
 cache[2] = 1
@@ -17,7 +18,7 @@ def fibonacci(n):
     cache[n] = fibonacci(n-1) + fibonacci(n-2)
     return cache[n]
     
-Dynamic Programming Solution:
+#Dynamic Programming Solution:
 def fibonacci(n):
     if n == 1 or n == 2:
         return 1
