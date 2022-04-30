@@ -54,6 +54,12 @@ def stair_climbing_unique_instructions(x, y):
     helper(0, [])
 
 
+"""
+Time: O(b^n)
+Space: O(b^n)
+"""
+
+
 def stair_climbing_possible_instructions(x, y):
     grid = [[0 for _ in range(x+1)] for _ in range(y+1)]
 
@@ -70,3 +76,9 @@ def stair_climbing_possible_instructions(x, y):
 
 
 stair_climbing_possible_instructions(4, 3)
+
+
+"""
+Time: O(n*m)
+Space: O(n*m)
+"""
