@@ -1,4 +1,4 @@
-def combination_sum(candidates, target): 
+def combination_sum(candidates, target):
     result = []
 
     def combination_sum_helper(i, slate):
@@ -10,8 +10,8 @@ def combination_sum(candidates, target):
 
         for j in range(i, len(candidates)):
             slate.append(candidates[j])
-            combination_sum_helper(j,slate)
+            combination_sum_helper(j, slate)
             slate.pop()
 
-    combination_sum_helper(0,[])
+    combination_sum_helper(0, [])
     return result

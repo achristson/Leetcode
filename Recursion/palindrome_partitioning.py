@@ -22,6 +22,6 @@ def partition(s):
                 slate.append(s[i:j+1])
                 helper(j+1, slate)
                 slate.pop()
-                
-    helper(0,[])
+
+    helper(0, [])
     return results

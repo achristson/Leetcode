@@ -5,7 +5,7 @@ Chars will be non-empty distinct list of single character strings
 And also an integer n >= 0
 Write a program that prints all strings using those characters
 of length exactly n
- 
+
 Example:
 chars = ['a', 'b', 'c']
 
@@ -43,7 +43,8 @@ ccc
 
 """
 
-def generate_strings(chars,n):
+
+def generate_strings(chars, n):
     def generate(slate):
         if len(slate) == n:
             print("".join(slate))
