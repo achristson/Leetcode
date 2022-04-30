@@ -12,3 +12,10 @@ def subsets(nums):
 
     helper(0, [])
     return result
+
+
+"""
+Link: https://leetcode.com/problems/subsets/
+Time: O(2^n)
+Space: O(2^n)
+"""

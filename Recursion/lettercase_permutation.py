@@ -20,3 +20,10 @@ def letter_case_permutation(s):
 
     helper(0, [])
     return results
+
+
+"""
+Link: https://leetcode.com/problems/letter-case-permutation/
+Time: O(2^n)
+Space: O(2^n)
+"""

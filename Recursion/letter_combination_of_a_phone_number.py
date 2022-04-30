@@ -24,3 +24,10 @@ def letter_combinations(digits):
 
     helper(0, [])
     return result
+
+
+"""
+Link: https://leetcode.com/problems/letter-combinations-of-a-phone-number/
+Time: O(4^n)
+Space: O(4^n)
+"""

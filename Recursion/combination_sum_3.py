@@ -2,7 +2,7 @@ def combination_sum_3(k, n):
     result = []
 
     def helper(i, slate):
-        if sum(slate) > n or i > n:
+        if sum(slate) > n:
             return
         if sum(slate) == n and len(slate) == k:
             result.append(slate[:])
@@ -15,3 +15,10 @@ def combination_sum_3(k, n):
                 slate.pop()
     helper(1, [])
     return result
+
+
+"""
+Link: https://leetcode.com/problems/combination-sum-iii/
+Time: O(b^n)
+Space: O(b^n)
+"""

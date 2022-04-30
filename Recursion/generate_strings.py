@@ -45,13 +45,40 @@ ccc
 
 
 def generate_strings(chars, n):
+    """Regular solution"""
     def generate(slate):
         if len(slate) == n:
             print("".join(slate))
             return
 
-        for i in range(len(chars)):
-            slate.append(chars[i])
+        for char in chars:
+            slate.append(char)
             generate(slate)
             slate.pop()
     generate([])
+
+    """
+    Time: O(n^n)
+    Space: O(n^n)
+    """
+
+
+def generate_strings_capacity(chars, n):
+    """Initialize list with capacity"""
+    slate = [""]*n
+
+    def generate(i):
+        if i == n:
+            print("".join(slate))
+            return
+
+        for char in chars:
+            slate[i] = char
+            generate(i+1)
+    generate(0)
+
+
+"""
+Time: O(n^n)
+Space: O(n^n)
+"""
