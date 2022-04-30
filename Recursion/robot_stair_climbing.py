@@ -55,8 +55,8 @@ def stair_climbing_unique_instructions(x, y):
 
 
 """
-Time: O(b^n)
-Space: O(b^n)
+Time: O(n!)
+Space: O(n!)
 """
 
 
