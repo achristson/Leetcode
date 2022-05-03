@@ -10,7 +10,7 @@ Write a program that given n gives you the n'th fib number.
 
 
 def fibonacci(n):
-    """Memoization Solution"""
+    """basic Solution"""
     if n == 1 or n == 2:
         return 1
     return fibonacci(n - 1) + fibonacci(n - 2)
