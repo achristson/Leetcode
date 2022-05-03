@@ -79,3 +79,17 @@ def fibonacci_dp_constant_space(n):
 Time: O(n)
 Space: O(1)
 """
+
+
+def fibonacci_gen(n):
+    """Fibonacci with generator"""
+    a, b = 1, 1
+    for _ in range(n):
+        yield a
+        a, b = b, a + b
+
+
+"""
+Time: O(n)
+Space: O(1)
+"""
