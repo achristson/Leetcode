@@ -32,6 +32,7 @@ UUURRRR
 
 
 def stair_climbing_unique_instructions(x, y):
+    """Old solution"""
     instruction = []
     for _ in range(x):
         instruction.append("R")
@@ -57,6 +58,34 @@ def stair_climbing_unique_instructions(x, y):
 """
 Time: O(n!)
 Space: O(n!)
+"""
+
+
+def stair_climbing_unique_instructions(x, y):
+    """Simpler solution"""
+    instruction = "R" * x
+    instruction += "U" * y
+
+    slate = [""] * (x + y)
+
+    def helper(instruction, slate, j):
+        if not instruction:
+            print("".join(slate))
+            return
+
+        for i in range(len(instruction)):
+            if i > 0 and instruction[i] == instruction[i - 1]:
+                continue
+            slate[j] = instruction[i]
+            helper(instruction[:i] + instruction[i + 1:], slate, j + 1)
+    helper(instruction, slate, 0)
+
+
+"""
+Let n = x
+Let m = y
+Time: O((n!+m!)
+Space: O(n+m)
 """
 
 
