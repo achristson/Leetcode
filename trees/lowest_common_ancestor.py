@@ -60,3 +60,10 @@ def lowest_common_ancestor(root, p, q):
 
     find_lca(root, p, q)
     return lca
+
+
+"""
+let n be the number of nodes in the tree
+Time: O(n)
+Space: O(n)
+"""
