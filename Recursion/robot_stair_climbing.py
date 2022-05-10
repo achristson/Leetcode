@@ -89,6 +89,57 @@ Space: O(n+m)
 """
 
 
+def stair_climbing_instruction_generator(x, y):
+    if x == 0:
+        yield "U" * y
+        return
+    if y == 0:
+        yield "R" * x
+        return
+
+    for instruction in stair_climbing_instruction_generator(x - 1, y):
+        yield "R" + instruction
+    for instruction in stair_climbing_instruction_generator(x, y - 1):
+        yield "U" + instruction
+
+
+for i in stair_climbing_instruction_generator(5, 4):
+    print(i)
+
+
+"""
+Let n = x
+Let m = y
+Time: O((n!+m!)
+Space: O(n+m)
+"""
+
+
+def stair_climbing_instruction_non_generator(x, y):
+    def generate(x, y, slate):
+        if x == 0:
+            print("".join(slate[:]) + "U" * y)
+            return
+        if y == 0:
+            print("".join(slate[:]) + "R" * x)
+            return
+        slate.append("R")
+        generate(x - 1, y, slate)
+        slate.pop()
+        slate.append("U")
+        generate(x, y - 1, slate)
+        slate.pop()
+    generate(x, y, [])
+
+
+"""
+Let n = x
+Let m = y
+Time: O((n!+m!)
+Space: O(n+m)
+"""
+
+
 def stair_climbing_possible_instructions(x, y):
     grid = [[0 for _ in range(x+1)] for _ in range(y+1)]
 
@@ -102,9 +153,6 @@ def stair_climbing_possible_instructions(x, y):
         for c in range(1, len(grid[0])):
             grid[r][c] = grid[r-1][c] + grid[r][c-1]
     print(grid[y][x])
-
-
-stair_climbing_possible_instructions(4, 3)
 
 
 """
