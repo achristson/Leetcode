@@ -58,8 +58,10 @@ def generate_strings(chars, n):
     generate([])
 
     """
-    Time: O(n^n)
-    Space: O(n^n)
+    let n = the length of strings we need to generate
+    let k = the length of the list of chars
+    Time: O(k^n)
+    Space: O(n)
     """
 
 
@@ -74,11 +76,34 @@ def generate_strings_capacity(chars, n):
 
         for char in chars:
             slate[i] = char
-            generate(i+1)
+            generate(i + 1)
     generate(0)
 
 
 """
-Time: O(n^n)
-Space: O(n^n)
+let n = the length of strings we need to generate
+let k = the length of the list of chars
+Time: O(k^n)
+Space: O(n)
+"""
+
+
+def generate_strings_gen(chars, n):
+    """generator solution"""
+    if n == 0:
+        yield ""
+        return
+    for s in generate_strings_gen(chars, n - 1):
+        for c in chars:
+            yield s + c
+
+
+for s in generate_strings_gen(['a', 'b', 'c'], 3):
+    print(s)
+
+"""
+let n = the length of strings we need to generate
+let k = the length of the list of chars
+Time: O(k^n)
+Space: O(1)
 """
