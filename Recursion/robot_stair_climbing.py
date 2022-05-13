@@ -135,7 +135,7 @@ def stair_climbing_instruction_non_generator(x, y):
 """
 Let n = x
 Let m = y
-Time: O((n!+m!)
+Time: O((n + m)!/(m! * n!))
 Space: O(n+m)
 """
 
