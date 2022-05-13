@@ -95,3 +95,87 @@ let k = length of a particular domain
 Time: O(n * k)
 Space: O(n)
 """
+
+# Building tree solution
+class Domain_Tree:
+    def __init__(self, data, score=0):
+        self.data = data
+        self.children = {}
+        self.score = score
+
+def find_root(domains):
+    root = None
+    root_score = 0
+    min_path = float("inf")
+    for domain, score in domains:
+        if len(domain.split(".")) < min_path:
+            root = domain
+            root_score = score
+            min_path = len(domain.split("."))
+    return root, root_score
+
+"""
+let n = length of domains
+let k = length of a particular domain
+Time: O(n)
+Space: O(k)
+"""
+
+def build_tree(domains):
+    if not domains:
+        return None
+
+    def build(i, split_domain, score, node):
+        if i < 0:
+            node.score = score
+            return 
+        current_node = None
+        if split_domain[i] not in root.children:
+            current_node = Domain_Tree(split_domain[i])
+            node.children[split_domain[i]] = current_node
+        else:
+            current_node = node.children[split_domain[i]]
+        build(i - 1, split_domain, score, current_node)
+        
+    root_domain, root_score = find_root(domains)
+    root = Domain_Tree(root_domain, root_score)
+    for domain, score in domains:
+        split_domain = domain.split(".")
+        build(len(split_domain) - 2, split_domain, score, root)
+    return root
+
+"""
+let n = length of domains
+let k = length of a particular domain
+Time: O(n * k)
+Space: O(n * k)
+"""
+
+def domain_scores(domains):
+    if not domains:
+        return []
+    root = build_tree(domains)
+    results = []
+
+    def get_total_score(i, split_domain, node, score):
+        if i <= 0:
+            score += node.score
+            return score
+        
+        score += node.score
+        for child in node.children:
+            if child == split_domain[i - 1]:
+                new_node = node.children[child]
+                return get_total_score(i - 1, split_domain, new_node, score)
+                
+    for domain, _ in domains:
+        split_domain = domain.split(".")
+        total_score = get_total_score(len(split_domain) - 1, split_domain, root, 0)
+        results.append((domain, total_score))
+    return results
+"""
+let n = length of domains
+let k = length of a particular domain
+Time: O(n * k)
+Space: O(n * k)
+"""
