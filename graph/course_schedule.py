@@ -9,19 +9,19 @@ Example 1:
 
 Input: numCourses = 2, prerequisites = [[1,0]]
 Output: true
-Explanation: There are a total of 2 courses to take. 
+Explanation: There are a total of 2 courses to take.
 To take course 1 you should have finished course 0. So it is possible.
 
 Example 2:
 
 Input: numCourses = 2, prerequisites = [[1,0],[0,1]]
 Output: false
-Explanation: There are a total of 2 courses to take. 
+Explanation: There are a total of 2 courses to take.
 To take course 1 you should have finished course 0, and to take course 0 you should also have finished course 1. So it is impossible.
 
 idea:
 since the courses have relationships to other courses we can represent this as a directed graph
-once we have the graph we can then try to create a topological sort 
+once we have the graph we can then try to create a topological sort
 if this is possible, then we can assume that we will be able to take all courses
 if it is not possible then we can assume that we will not be able to take all courses
 
@@ -76,4 +76,3 @@ def course_schedule(num_courses, prerequisites):
             return True
         return False
     return top_sort()
-

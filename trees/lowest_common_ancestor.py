@@ -38,7 +38,7 @@ return if we found a node in either of our subtrees to our parent
 
 
 def lowest_common_ancestor(root, p, q):
-
+    """LCA with nonlocal variable"""
     lca = None
 
     def find_lca(node, p, q):
@@ -64,6 +64,31 @@ def lowest_common_ancestor(root, p, q):
 
 """
 Link: https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/
+let n be the number of nodes in the tree
+Time: O(n)
+Space: O(n)
+"""
+
+
+def lca_without_nonlocal(root, p, q):
+    if root is None:
+        return None
+    if root == p or root == q:
+        return root
+
+    left = lca_without_nonlocal(root.left, p, q)      
+    right = lca_without_nonlocal(root.right, p, q)
+
+    if left and right:
+        return root
+    if left:
+        return left
+    if right:
+        return right
+    return None
+
+
+"""
 let n be the number of nodes in the tree
 Time: O(n)
 Space: O(n)
