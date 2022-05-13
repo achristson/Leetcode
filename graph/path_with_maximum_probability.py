@@ -39,7 +39,7 @@ Link: https://leetcode.com/problems/path-with-maximum-probability/
 let n = number of nodes in the graph
 let e = number of connections in edges
 Time: O(elogn)
-Space: O(n)
+Space: O(n + e)
 """
 
 def maxProbability(n, edges, succProb, start, end):
