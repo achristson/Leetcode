@@ -45,7 +45,7 @@ let e be the number of edges in the graph
 let k be the minimum number of stops
 let n be the number of cities
 Time: O(e * k)
-Space: O(n)
+Space: O(e + n)
 """
 
 
