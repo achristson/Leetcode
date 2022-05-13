@@ -36,7 +36,7 @@ Link: https://leetcode.com/problems/number-of-ways-to-arrive-at-destination/
 let e = number of edges in the graph 
 let n = number of nodes in the graph
 Time: O(elogn)
-Space: O(n)
+Space: O(n + e)
 """
 
 
