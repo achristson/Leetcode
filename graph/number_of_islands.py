@@ -59,3 +59,37 @@ def number_of_islands(grid):
                 count += 1
                 dfs(r, c)
     return count
+  
+def num_islands_bfs(grid):
+    rows, cols = len(grid), len(grid[0])
+
+    def get_neighbors(r, c):
+        delta_r = [-1, 0, 1, 0]
+        delta_c = [0, 1, 0, -1]
+        neighbors = []
+        for i in range(len(delta_r)):
+            new_r = r + delta_r[i]
+            new_c = c + delta_c[i]
+            if 0 <= new_r < rows and 0 <= new_c < cols:
+                neighbors.append((new_r, new_c))
+        return neighbors
+
+    def bfs(r, c):
+        queue = deque()
+        queue.append((r, c))
+
+        while queue:
+            r, c = queue.popleft()
+            grid[r][c] = "0"
+
+            for neighbor_r, neighbor_c in get_neighbors(r, c):
+                if grid[neighbor_r][neighbor_c] == "1":
+                    queue.append((neighbor_r, neighbor_c))
+    num_islands = 0
+
+    for r in range(rows):
+        for c in range(cols):
+            if grid[r][c] == "1":
+                num_islands += 1
+                bfs(r, c)
+    return num_islands
